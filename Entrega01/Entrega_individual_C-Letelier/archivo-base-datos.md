@@ -6,6 +6,6 @@
 - **Acceso:**  
   https://docs.google.com/spreadsheets/d/1G61Z36wkqPqsj1I2_FXJCv-UfzlFtnm1URnYAAULB6s/edit?usp=share_link  
 
-[text](<BBDD Congreso - Hoja 1.csv>) 
+[text](<BASE DATOS -  Congreso - Hoja 1.csv>)
 
 > *Nota: El archivo puede ser descargado en formato `.csv` directamente desde Google Sheets.*
