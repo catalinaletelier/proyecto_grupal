@@ -1,5 +1,9 @@
-## Base de datos
+# ARCHIVO BASE DE DATOS
 
-La base de datos utilizada en este proyecto está disponible en formato CSV:
+##  Base de datos
 
-[Descargar base de datos](./data/BBDD Congreso - Hoja 1.csv)
+- **Formato:** CSV  
+- **Acceso:**  
+  https://docs.google.com/spreadsheets/d/1G61Z36wkqPqsj1I2_FXJCv-UfzlFtnm1URnYAAULB6s/edit?usp=share_link  
+
+> *Nota: El archivo puede ser descargado en formato `.csv` directamente desde Google Sheets.*
