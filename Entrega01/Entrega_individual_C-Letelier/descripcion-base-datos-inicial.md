@@ -65,3 +65,4 @@ https://drive.google.com/drive/folders/1X_c4j8D8c_SYIuU8WkUg2RNa5vE-CJ6-?usp=sha
 ## Ejemplo de la base de datos
 
 *(Base actualmente en construcción e incompleta)*
+![alt text](image.png)
