@@ -18,7 +18,7 @@ Se identificó que varias ministras aparecían en múltiples filas debido a camb
 **Estandarización de variables:**  
 Se corrigieron inconsistencias en nombres (tildes, dobles apellidos, errores de digitación) y en categorías como profesión. Esto permitió evitar duplicaciones erróneas y facilitar el cruce de información.
 
-**Enriquecimiento de datos (Data Enrichment):**  
+**Enriquecimiento de datos:**  
 Dado que la base original no contenía variables biográficas clave, se realizó un cruce con fuentes externas para incorporar:
 
 - Profesión  
