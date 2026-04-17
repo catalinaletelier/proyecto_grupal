@@ -1,4 +1,4 @@
-## D. Base de datos originales
+## Base de datos originales
 
 No existe una base de datos única y consolidada que reúna la información completa sobre mujeres que han ocupado cargos ministeriales en Chile desde 1952 hasta la actualidad. Por esta razón, la base utilizada en este trabajo fue construida mediante un proceso de recopilación, sistematización y cruce de información proveniente de distintas fuentes disponibles en línea.
 
