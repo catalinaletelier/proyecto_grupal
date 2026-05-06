@@ -16,7 +16,7 @@ Para realizar la visualización, primero se trabajó con la Base de datos de gab
 
 Primero revise las variables disponibles para determinar cuáles permitían responder mejor a las preguntas de investigación. Después decidí trabajar con la relación entre año y partido político, ya que esta permite observar la evolución temporal de la presencia femenina en los gabinetes y, al mismo tiempo, identificar qué partidos aparecen asociados a esos nombramientos.
 
-A partir de la base principal se construí una base específica, Distribucion de Partidos por año.csv, que use para hacer la visualización. Esta segunda base permitió ordenar y agrupar los registros según el año y el partido político asociado a cada ministra.
+A partir de la base principal se construí una base específica, Distribucion de Partidos por año, que use para hacer la visualización. Esta segunda base permitió ordenar y agrupar los registros según el año y el partido político asociado a cada ministra.
 
 La visualización final corresponde a un gráfico de barras apiladas. En este gráfico, el eje X representa los años, el eje Y representa la cantidad de registros de ministras y el color identifica el partido político. Esto permite ver, en una sola imagen, tanto la evolución temporal como la diversidad partidaria de las mujeres que han ocupado cargos ministeriales.
 
