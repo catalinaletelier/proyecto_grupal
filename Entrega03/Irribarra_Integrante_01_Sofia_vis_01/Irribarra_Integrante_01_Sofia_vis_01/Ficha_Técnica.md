@@ -6,7 +6,7 @@
 
 ## Nombre de la base procesada para la visualización
 
-**Distribucion de Partidos por año.csv**
+**Distribucion de Partidos por año**
 
 ## Formato
 
