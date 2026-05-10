@@ -1,0 +1,9 @@
+# Crónica
+
+Mediante los gráficos se evidencia que se ha tratado, tal como sospechábamos, de un aumento progresivo en presidencia de mujeres en partidos políticos en nuestro país a través de los años. Entre 1989 y 2009, es decir, a 20 desde que se eligió a la primera mujer como presidenta de un partido político, sólo 4 mujeres más fueron electas. En los siguientes casi 10 años, de 2010 a 2019, 8 mujeres fueron electas y en los últimos 6 años, 11 mujeres han sido electas. El aumento exponencial de esa tasa de elección está representado en el último gráfico. 
+
+Por otro lado, el crecimiento de las barras en los tres gráficos que comparan períodos demuestra la sostenida representación femenina en partidos ligados a la izquierda, que, contra posibles pronósticos, no aumenta significativamente con el tiempo. Sin embargo, el sector de derecha se adhiere y crece a medida que avanza el tiempo. 
+
+Aunque no haya tantas mujeres electas como presidentas de partidos políticos en la derecha, eventualmente el número aumenta. En un principio, como demuestra el primer gráfico, era mucho más evidente la relación entre la inclinación ideológica y la presidencia femenina, siendo una situación casi exclusivamente de partidos de izquierda o centroizquierda. Sin embargo, los otros dos gráficos demuestran que la participación femenina se expandió hacia los otros sectores con el tiempo y la diferencia de presidentas por sector político disminuyó significativamente. Además, la notoria participación de partidos de centro, centroizquierda y centroderecha a lo largo del tiempo hace aún más evidente la multidimensionalidad de la integración femenina a la política. 
+
+Esto apoya la revelación que busca hacer nuestra investigación; la participación de mujeres en cargos de poder políticos no responde a un nicho ideológico, sino un fenómeno transversal; partidos de centro e incluso ultraderecha cuentan con alguna presidenta. 
