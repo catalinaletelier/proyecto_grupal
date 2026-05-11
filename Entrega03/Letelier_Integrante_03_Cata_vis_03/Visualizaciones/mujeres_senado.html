@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-29d8a69b434acdfad5c1fd866ec790ce"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "A\u00f1o", "type": "nominal"}, "tooltip": [{"field": "Senado", "type": "quantitative"}, {"field": "A\u00f1o", "type": "quantitative"}], "x": {"field": "A\u00f1o", "type": "nominal"}, "y": {"field": "Senado", "type": "quantitative"}}, "title": "Mujeres en el Senado en cada elecci\u00f3n", "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-29d8a69b434acdfad5c1fd866ec790ce": [{"A\u00f1o": 1951, "Total Congreso": 1, "C\u00e1mara": 1, "Senado": 0}, {"A\u00f1o": 1953, "Total Congreso": 2, "C\u00e1mara": 1, "Senado": 1}, {"A\u00f1o": 1957, "Total Congreso": 3, "C\u00e1mara": 3, "Senado": 0}, {"A\u00f1o": 1961, "Total Congreso": 5, "C\u00e1mara": 5, "Senado": 0}, {"A\u00f1o": 1965, "Total Congreso": 10, "C\u00e1mara": 10, "Senado": 0}, {"A\u00f1o": 1969, "Total Congreso": 7, "C\u00e1mara": 7, "Senado": 0}, {"A\u00f1o": 1973, "Total Congreso": 16, "C\u00e1mara": 14, "Senado": 2}, {"A\u00f1o": 1990, "Total Congreso": 9, "C\u00e1mara": 7, "Senado": 2}, {"A\u00f1o": 1994, "Total Congreso": 11, "C\u00e1mara": 9, "Senado": 2}, {"A\u00f1o": 1998, "Total Congreso": 15, "C\u00e1mara": 13, "Senado": 2}, {"A\u00f1o": 2002, "Total Congreso": 17, "C\u00e1mara": 15, "Senado": 2}, {"A\u00f1o": 2006, "Total Congreso": 21, "C\u00e1mara": 19, "Senado": 2}, {"A\u00f1o": 2010, "Total Congreso": 22, "C\u00e1mara": 17, "Senado": 5}, {"A\u00f1o": 2014, "Total Congreso": 22, "C\u00e1mara": 15, "Senado": 7}, {"A\u00f1o": 2018, "Total Congreso": 41, "C\u00e1mara": 31, "Senado": 10}, {"A\u00f1o": 2021, "Total Congreso": 10, "C\u00e1mara": 0, "Senado": 10}, {"A\u00f1o": 2022, "Total Congreso": 47, "C\u00e1mara": 46, "Senado": 1}, {"A\u00f1o": 2026, "Total Congreso": 56, "C\u00e1mara": 41, "Senado": 15}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
