@@ -1,8 +1,8 @@
-# Presencia femenina en el congreso a lo largo de los años
+# La transformación del poder político femenino en Chile
 
 La historia del poder en Chile ha sido, durante gran parte de su vida republicana, un relato escrito en masculino. Sin embargo, al observar las cifras que arrojan las últimas siete décadas, emerge una narrativa de irrupción, persistencia y, finalmente, transformación.
 
-Las tres visualizaciones que acompañan esta crónica no solo cuentan cuántas mujeres han ocupado un escaño, sino cómo han redefinido la arquitectura del Congreso Nacional.
+Las tres visualizaciones que acompañan esta crónica —basadas en un exhaustivo cruce de datos históricos desde 1950 hasta 2026— no solo cuentan cuántas mujeres han ocupado un escaño, sino cómo han redefinido la arquitectura del Congreso Nacional.
 
 
 En 1951, la Cámara de Diputados registró su primera marca en el gráfico: una sola mujer. Era el inicio de una entrada a cuentagotas. Como muestra la visualización del Senado, hubo que esperar hasta 1953 para que la Cámara Alta viera a su primera integrante.
@@ -25,11 +25,11 @@ El punto de inflexión más dramático en las gráficas ocurre en 2018. Coincidi
 
 El Total Congreso muestra una curva ascendente que rompe con cualquier tendencia anterior, demostrando que la presencia femenina dejó de ser una anomalía para convertirse en un motor estructural.
 
-Para las proyecciones de 2026, la tendencia es histórica: se esperan 56 mujeres en la Cámara de Diputados y un récord de 15 en el Senado.
+En 2026 la tendencia es histórica: 56 mujeres en la Cámara de Diputados y un récord de 15 en el Senado.
 
 Estas cifras respaldan la idea de que el liderazgo femenino en Chile ha superado la barrera de la “exclusividad ideológica”. Hoy, desde la extrema izquierda hasta la derecha, las mujeres no solo están presentes, sino que lideran comisiones “duras” y mesas directivas, demostrando que su avance es fruto de una diversificación de perfiles —edad, carrera y origen— que enriquece la democracia.
 
-## Conclusión: las mujeres llegaron para quedarse
+## Conclusión: un poder que llegó para quedarse
 
 Las visualizaciones son claras: el Congreso chileno de 2026 es irreconocible para quienes lo habitaron en 1950.
 
