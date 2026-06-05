@@ -1,4 +1,4 @@
-# 4. Documentación
+# Documentación
 
 ## Manual de identidad:
 
