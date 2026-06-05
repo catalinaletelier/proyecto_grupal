@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-fe9ba7cdeaf666bb6ae22f0921443348"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "Per\u00edodos", "scale": {"reverse": true, "scheme": "blues"}, "type": "nominal"}, "size": {"field": "bar_size", "legend": null, "scale": {"range": [20, 100]}, "type": "quantitative"}, "x": {"field": "Per\u00edodos", "type": "nominal"}, "y": {"field": "Tasa de presidentas electas por a\u00f1o", "type": "quantitative"}}, "title": "El aumento exponencial de mujeres electas para la presidencia de partidos pol\u00edticos en Chile en los \u00faltimos 37 a\u00f1os", "width": 400, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-fe9ba7cdeaf666bb6ae22f0921443348": [{"Per\u00edodos": "1989-2009", "Tasa de presidentas electas por a\u00f1o": 0.25, "bar_size": 600}, {"Per\u00edodos": "2010-2019", "Tasa de presidentas electas por a\u00f1o": 0.88, "bar_size": 300}, {"Per\u00edodos": "2020-2026", "Tasa de presidentas electas por a\u00f1o": 1.83, "bar_size": 180}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
