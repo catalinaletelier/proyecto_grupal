@@ -1,4 +1,4 @@
-# README — Mujeres al Mando
+
 
 ## Titular del reportaje
 
