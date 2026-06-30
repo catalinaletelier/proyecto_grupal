@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "proyecto_grupal",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5503
+	}
+}
