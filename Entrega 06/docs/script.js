@@ -1,176 +1,163 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const menuToggle = document.getElementById("menuToggle");
-  const navLinks = document.getElementById("navLinks");
+const menuButton = document.querySelector(".menu-toggle");
+const nav = document.querySelector(".main-nav");
 
-  menuToggle?.addEventListener("click", () => {
-    navLinks.classList.toggle("is-open");
+if (menuButton && nav) {
+  menuButton.addEventListener("click", () => {
+    nav.classList.toggle("open");
   });
+}
 
-  document.querySelectorAll(".nav-links a").forEach((link) => {
-    link.addEventListener("click", () => navLinks.classList.remove("is-open"));
+document.querySelectorAll(".main-nav a").forEach((link) => {
+  link.addEventListener("click", () => {
+    nav?.classList.remove("open");
   });
-
-  const timelineItems = document.querySelectorAll(".timeline-item");
-
-  timelineItems.forEach((item) => {
-    const button = item.querySelector(".timeline-year");
-
-    button.addEventListener("click", () => {
-      timelineItems.forEach((other) => other.classList.remove("is-active"));
-      item.classList.add("is-active");
-    });
-  });
-
-  const backToTop = document.getElementById("backToTop");
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 650) {
-      backToTop.classList.add("is-visible");
-    } else {
-      backToTop.classList.remove("is-visible");
-    }
-  });
-
-  backToTop?.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  });
-
-  const glossaryModal = document.getElementById("glossaryModal");
-  const closeGlossary = document.getElementById("closeGlossary");
-  const glossaryButtons = document.querySelectorAll("[data-open-glossary]");
-  const glossarySearch = document.getElementById("glossarySearch");
-  const glossaryItems = document.querySelectorAll("#glossaryList p");
-
-  glossaryButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      glossaryModal.showModal();
-      glossarySearch.focus();
-    });
-  });
-
-  closeGlossary?.addEventListener("click", () => {
-    glossaryModal.close();
-  });
-
-  glossaryModal?.addEventListener("click", (event) => {
-    const modalBox = glossaryModal.getBoundingClientRect();
-
-    const clickedOutside =
-      event.clientX < modalBox.left ||
-      event.clientX > modalBox.right ||
-      event.clientY < modalBox.top ||
-      event.clientY > modalBox.bottom;
-
-    if (clickedOutside) {
-      glossaryModal.close();
-    }
-  });
-
-  glossarySearch?.addEventListener("input", () => {
-    const value = glossarySearch.value.toLowerCase().trim();
-
-    glossaryItems.forEach((item) => {
-      const text = item.textContent.toLowerCase();
-      item.style.display = text.includes(value) ? "block" : "none";
-    });
-  });
-
-  const specPresidentas = {
-    $schema: "https://vega.github.io/schema/vega-lite/v5.20.1.json",
-    title: "El aumento exponencial de mujeres electas para la presidencia de partidos políticos en Chile en los últimos 37 años",
-    width: "container",
-    height: 320,
-    data: {
-      values: [
-        {
-          "Períodos": "1989-2009",
-          "Tasa de presidentas electas por año": 0.25
-        },
-        {
-          "Períodos": "2010-2019",
-          "Tasa de presidentas electas por año": 0.88
-        },
-        {
-          "Períodos": "2020-2026",
-          "Tasa de presidentas electas por año": 1.83
-        }
-      ]
-    },
-    mark: {
-      type: "bar",
-      cornerRadiusTopLeft: 12,
-      cornerRadiusTopRight: 12
-    },
-    encoding: {
-      x: {
-        field: "Períodos",
-        type: "nominal",
-        axis: {
-          labelAngle: 0,
-          title: null
-        }
-      },
-      y: {
-        field: "Tasa de presidentas electas por año",
-        type: "quantitative",
-        title: "Tasa por año"
-      },
-      color: {
-        field: "Períodos",
-        type: "nominal",
-        scale: {
-          domain: ["1989-2009", "2010-2019", "2020-2026"],
-          range: ["#F9C784", "#F28C28", "#C95A00"]
-        },
-        legend: null
-      },
-      tooltip: [
-        {
-          field: "Períodos",
-          type: "nominal"
-        },
-        {
-          field: "Tasa de presidentas electas por año",
-          type: "quantitative"
-        }
-      ]
-    },
-    config: {
-      background: "#ffffff",
-      view: {
-        stroke: null
-      },
-      axis: {
-        labelFont: "Arial",
-        titleFont: "Arial",
-        labelColor: "#23172f",
-        titleColor: "#23172f"
-      },
-      title: {
-        font: "Arial",
-        fontSize: 18,
-        color: "#36135c",
-        anchor: "start"
-      }
-    }
-  };
-
-  function renderPresidentasChart() {
-    if (window.vegaEmbed && document.getElementById("visPresidentas")) {
-      vegaEmbed("#visPresidentas", specPresidentas, {
-        actions: false,
-        renderer: "svg"
-      }).catch((error) => {
-        document.getElementById("visPresidentas").innerHTML =
-          `<p class="chart-error">No se pudo cargar el gráfico: ${error.message}</p>`;
-      });
-    } else {
-      setTimeout(renderPresidentasChart, 200);
-    }
-  }
-
-  renderPresidentasChart();
 });
+
+const counters = document.querySelectorAll("[data-count]");
+let countersStarted = false;
+
+function animateCounters() {
+  counters.forEach((counter) => {
+    const target = Number(counter.dataset.count);
+    let current = 0;
+    const increment = Math.max(1, Math.ceil(target / 45));
+
+    function update() {
+      current += increment;
+      if (current >= target) {
+        counter.textContent = target;
+        return;
+      }
+
+      counter.textContent = current;
+      requestAnimationFrame(update);
+    }
+
+    update();
+  });
+}
+
+const statsBox = document.querySelector(".stats-box");
+
+if (statsBox) {
+  const counterObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !countersStarted) {
+          countersStarted = true;
+          animateCounters();
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  counterObserver.observe(statsBox);
+}
+
+const glossaryModal = document.querySelector(".glossary-modal");
+const glossaryOpenButtons = document.querySelectorAll("[data-glossary]");
+const glossaryCloseButton = document.querySelector(".close-glossary");
+
+function openGlossary() {
+  glossaryModal?.classList.add("active");
+  glossaryModal?.setAttribute("aria-hidden", "false");
+}
+
+function closeGlossary() {
+  glossaryModal?.classList.remove("active");
+  glossaryModal?.setAttribute("aria-hidden", "true");
+}
+
+glossaryOpenButtons.forEach((button) => {
+  button.addEventListener("click", openGlossary);
+});
+
+glossaryCloseButton?.addEventListener("click", closeGlossary);
+
+glossaryModal?.addEventListener("click", (event) => {
+  if (event.target === glossaryModal) {
+    closeGlossary();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeGlossary();
+  }
+});
+
+const specPresidentas = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json",
+  "width": "container",
+  "height": 320,
+  "background": "#ffffff",
+  "title": {
+    "text": "El aumento exponencial de mujeres electas para la presidencia de partidos políticos en Chile",
+    "anchor": "start",
+    "font": "Inter",
+    "fontSize": 18,
+    "fontWeight": 800,
+    "color": "#25172E"
+  },
+  "data": {
+    "values": [
+      { "Períodos": "1989-2009", "Tasa de presidentas electas por año": 0.25 },
+      { "Períodos": "2010-2019", "Tasa de presidentas electas por año": 0.88 },
+      { "Períodos": "2020-2026", "Tasa de presidentas electas por año": 1.83 }
+    ]
+  },
+  "mark": {
+    "type": "bar",
+    "cornerRadiusTopLeft": 12,
+    "cornerRadiusTopRight": 12
+  },
+  "encoding": {
+    "x": {
+      "field": "Períodos",
+      "type": "nominal",
+      "axis": {
+        "labelAngle": 0,
+        "title": null,
+        "labelFont": "Inter",
+        "labelFontSize": 13,
+        "labelFontWeight": 700
+      }
+    },
+    "y": {
+      "field": "Tasa de presidentas electas por año",
+      "type": "quantitative",
+      "axis": {
+        "title": "Tasa de presidentas electas por año",
+        "labelFont": "Inter",
+        "titleFont": "Inter",
+        "gridColor": "#F2D9E8"
+      }
+    },
+    "color": {
+      "field": "Períodos",
+      "type": "nominal",
+      "scale": {
+        "domain": ["1989-2009", "2010-2019", "2020-2026"],
+        "range": ["#F9C784", "#F28C28", "#C95A00"]
+      },
+      "legend": null
+    },
+    "tooltip": [
+      { "field": "Períodos", "type": "nominal" },
+      { "field": "Tasa de presidentas electas por año", "type": "quantitative" }
+    ]
+  },
+  "config": {
+    "view": { "stroke": null },
+    "font": "Inter"
+  }
+};
+
+const vegaContainer = document.querySelector("#vega-presidentas");
+
+if (vegaContainer && window.vegaEmbed) {
+  vegaEmbed("#vega-presidentas", specPresidentas, { actions: false })
+    .catch((error) => console.error("Error al cargar gráfico Vega:", error));
+}
