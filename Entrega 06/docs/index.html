@@ -3,411 +3,666 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mujeres al mando</title>
+  <meta name="author" content="Sofía Irribarra" />
+  <meta name="description" content="Webstory Mujeres al Mando: el ascenso de liderazgos femeninos en el Congreso, los gabinetes y los partidos políticos en Chile." />
+  <title>Mujeres al Mando | Webstory</title>
+
   <link rel="stylesheet" href="style.css" />
 
-  <script src="https://public.flourish.studio/resources/embed.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <!-- Flourish -->
+  <script src="https://public.flourish.studio/resources/embed.js" defer></script>
+
+  <!-- Vega / Vega-Lite / Vega Embed para el gráfico de presidentas de partidos -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6" defer></script>
+
+  <script src="script.js" defer></script>
 </head>
 
 <body>
-  <header class="site-header">
-    <a href="#inicio" class="brand">Mujeres al mando</a>
+  <header class="hero" id="inicio">
+    <nav class="topbar" aria-label="Navegación principal">
+      <a class="brand" href="#inicio">Mujeres al Mando</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
 
-    <button class="menu-toggle" aria-expanded="false">Menú</button>
-
-    <nav class="site-nav">
-      <a href="#hitos">Hitos</a>
-      <a href="#congreso">Congreso</a>
-      <a href="#gabinetes">Gabinetes</a>
-      <a href="#partidos">Partidos</a>
-      <a href="#carreras">Carreras</a>
-      <button class="glossary-open" type="button">Glosario</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#hitos">Hitos</a>
+        <a href="#congreso">Congreso</a>
+        <a href="#gabinetes">Gabinetes</a>
+        <a href="#partidos">Partidos</a>
+        <a href="#cierre">Cierre</a>
+      </div>
     </nav>
+
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">Política chilena · Congreso · Gabinetes · Partidos</p>
+
+        <h1>Mujeres al Mando</h1>
+
+        <p class="lead">
+          El ascenso de liderazgos femeninos en el Congreso, los gabinetes y los partidos.
+          Cómo las mujeres ampliaron su presencia, liderazgo y diversidad en la política chilena.
+        </p>
+
+        <p>
+          Michelle Bachelet vuelve a aparecer en una escena de poder que parecía lejana para cualquier mujer chilena:
+          la carrera por la Secretaría General de la ONU. Su nombre, asociado a la primera Presidencia femenina de Chile,
+          a los ministerios de Salud y Defensa, a ONU Mujeres y a la Alta Comisionada de Naciones Unidas para los Derechos Humanos,
+          permite mirar hacia atrás y hacerse una pregunta más amplia:
+          <strong>¿cómo llegaron las mujeres chilenas a ocupar espacios cada vez más altos en la política nacional e internacional?</strong>
+        </p>
+
+        <p>
+          Hoy en Chile contamos con <strong>68 parlamentarias, 9 ministras y 2 presidentas de partidos políticos</strong>.
+          Pero para llegar a este nivel de representación femenina se recorrió un camino largo, desigual y lleno de interrupciones.
+          Hubo mujeres pioneras, conquistas institucionales y trayectorias políticas que abrieron la puerta a nuevas generaciones.
+        </p>
+
+        <a class="primary-btn" href="#hitos">Comenzar recorrido</a>
+      </div>
+
+      <figure class="hero-image">
+        <img src="assets/img/portada.jpg" alt="Portada de Mujeres al Mando" />
+        <figcaption>Imagen de portada: <code>portada.jpg</code></figcaption>
+      </figure>
+    </div>
   </header>
 
-  <div class="progress-panel">
-    <span></span>
-  </div>
-
   <main>
-    <section id="inicio" class="hero">
-      <div class="hero-image">
-        <img src="portada.jpg" alt="Portada Mujeres al mando">
+    <section class="section intro-card">
+      <p>
+        Esta historia no trata únicamente sobre “más mujeres en política”, sino sobre cómo ellas han ido
+        <strong>ocupando, disputando y transformando los espacios donde se decide el poder</strong>.
+      </p>
+    </section>
+
+    <section class="section" id="hitos">
+      <div class="section-heading">
+        <img class="section-icon" src="assets/img/icono_hitos.png" alt="" />
+        <div>
+          <p class="eyebrow">Línea de tiempo</p>
+          <h2>Del voto a la Presidencia</h2>
+          <p class="subtitle">Los hitos que marcaron la participación política femenina.</p>
+        </div>
       </div>
 
-      <div class="hero-text">
-        <p class="eyebrow">Webstory</p>
-        <h1>MUJERES AL MANDO</h1>
-        <p class="subtitle">El ascenso de liderazgos femeninos en el Congreso, los gabinetes y los partidos.</p>
+      <div class="timeline" id="timeline">
+        <article class="timeline-item is-active">
+          <button class="timeline-year">1934</button>
+          <div class="timeline-content">
+            <h3>Voto municipal femenino</h3>
+            <p>
+              Las mujeres obtienen el derecho a votar en elecciones locales,
+              el primer reconocimiento formal de su participación cívica.
+            </p>
+            <img src="assets/img/1934-voto-municipal.jpg" alt="Voto municipal femenino en Chile" />
+          </div>
+        </article>
 
-        <div class="intro-card">
-          <p>Michelle Bachelet vuelve a aparecer en una escena de poder que parecía lejana para cualquier mujer chilena: la carrera por la Secretaría General de la ONU. Su nombre, asociado a la primera Presidencia femenina de Chile, a los ministerios de Salud y Defensa, a ONU Mujeres y a la Alta Comisionada de Naciones Unidas para los Derechos Humanos, permite mirar hacia atrás y hacerse una pregunta más amplia: <strong>¿cómo llegaron las mujeres chilenas a ocupar espacios cada vez más altos en la política nacional e internacional?</strong></p>
+        <article class="timeline-item">
+          <button class="timeline-year">1935</button>
+          <div class="timeline-content">
+            <h3>Primeras alcaldesas</h3>
+            <p>
+              Apenas un año después de ejercer el voto, algunas mujeres son electas para dirigir municipios,
+              entre ellas Alicia Cañas Zañartu.
+            </p>
+            <img src="assets/img/1935-alcaldesas.jpg" alt="Primeras alcaldesas en Chile" />
+          </div>
+        </article>
 
-          <p>Hoy en Chile contamos con <strong>68 parlamentarias, 9 ministras y 2 presidentas de partidos políticos</strong>. Pero para llegar a este nivel de representación femenina se recorrió un camino largo, desigual y lleno de interrupciones.</p>
+        <article class="timeline-item">
+          <button class="timeline-year">1949</button>
+          <div class="timeline-content">
+            <h3>Sufragio pleno</h3>
+            <p>
+              La Ley 9.292 permite que las mujeres voten en elecciones presidenciales y parlamentarias
+              en igualdad de condiciones con los hombres.
+            </p>
+            <img src="assets/img/1949-sufragio-pleno.jpg" alt="Sufragio pleno femenino en Chile" />
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <button class="timeline-year">1951</button>
+          <div class="timeline-content">
+            <h3>Primera diputada electa</h3>
+            <p>
+              Con el sufragio pleno recién conquistado, las mujeres comienzan a llegar al Congreso Nacional.
+              Inés Enríquez fue la primera diputada electa en 1951.
+            </p>
+            <img src="assets/img/1951-ines-enriquez.jpg" alt="Inés Enríquez" />
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <button class="timeline-year">1952</button>
+          <div class="timeline-content">
+            <h3>Primera ministra</h3>
+            <p>
+              Adriana Olguín de Baltra fue la primera mujer en asumir un ministerio en Chile y en América Latina,
+              al ser nombrada ministra de Justicia.
+            </p>
+            <img src="assets/img/1952-adriana-olguin.jpg" alt="Adriana Olguín de Baltra" />
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <button class="timeline-year">1953</button>
+          <div class="timeline-content">
+            <h3>Primera senadora</h3>
+            <p>
+              María de la Cruz Toledo fue electa como la primera senadora de la historia de Chile.
+            </p>
+            <img src="assets/img/1953-maria-de-la-cruz.jpg" alt="María de la Cruz Toledo" />
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <button class="timeline-year">1990</button>
+          <div class="timeline-content">
+            <h3>Primeras ministras en democracia</h3>
+            <p>
+              El retorno a la democracia abrió el gabinete a mujeres en carteras ministeriales de peso.
+              Una de ellas fue Soledad Alvear.
+            </p>
+            <img src="assets/img/1990-soledad-alvear.jpg" alt="Soledad Alvear" />
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <button class="timeline-year">2002</button>
+          <div class="timeline-content">
+            <h3>Primera presidenta de la Cámara</h3>
+            <p>
+              Adriana Muñoz fue designada por sus colegas como presidenta de la Cámara Baja,
+              la máxima posición legislativa ocupada por una mujer hasta entonces.
+            </p>
+            <img src="assets/img/2002-adriana-munoz.jpg" alt="Adriana Muñoz" />
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <button class="timeline-year">2006</button>
+          <div class="timeline-content">
+            <h3>Michelle Bachelet, primera presidenta</h3>
+            <p>
+              El hito culminante: primera mujer electa jefa de Estado en Chile,
+              y una de las primeras en América Latina.
+            </p>
+            <img src="assets/img/2006-michelle-bachelet.jpg" alt="Michelle Bachelet" />
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <button class="timeline-year">2014</button>
+          <div class="timeline-content">
+            <h3>Primera presidenta del Senado</h3>
+            <p>
+              Isabel Allende asumió la presidencia de la Cámara Alta.
+              Por primera vez, una mujer ocupó dicho puesto.
+            </p>
+            <img src="assets/img/2014-isabel-allende.jpg" alt="Isabel Allende" />
+          </div>
+        </article>
+      </div>
+
+      <p class="closing-paragraph">
+        La historia que contamos es la de una conquista lenta, desigual y progresiva de los espacios de decisión política en Chile.
+        Desde las primeras mujeres electas en los años cincuenta hasta las parlamentarias, ministras y presidentas de partidos de los últimos años,
+        las mujeres pasaron de ser casos excepcionales a ocupar un lugar cada vez más visible.
+      </p>
+    </section>
+
+    <section class="section profile-section">
+      <div class="profile-card">
+        <img src="assets/img/isabel-allende.jpg" alt="Isabel Allende" />
+        <div>
+          <p class="eyebrow">Perfil</p>
+          <h2>Isabel Allende y Gladys Marín: abrirse paso en el Congreso</h2>
+
+          <h3>Isabel Allende — Una trayectoria prolongada desde la izquierda</h3>
+          <p>
+            Socióloga y militante del Partido Socialista, Isabel Allende ha construido una de las carreras legislativas
+            más extensas y sostenidas de la política chilena reciente. Su trayectoria electoral comenzó en la Cámara de Diputadas
+            y Diputados, donde fue elegida en 1993, 1997, 2001 y 2005.
+          </p>
+
+          <p>
+            Luego dio el salto al Senado, donde fue electa en 2009 y nuevamente en 2017.
+            Además, presidió la Cámara de Diputadas y Diputados y se convirtió en
+            <strong>la primera mujer en presidir el Senado</strong>, un hito relevante en la historia política del país.
+          </p>
         </div>
+      </div>
 
-        <a href="#hitos" class="scroll-cta">Comenzar recorrido</a>
+      <div class="profile-card reverse">
+        <img src="assets/img/gladys-marin.jpg" alt="Gladys Marín" />
+        <div>
+          <h3>Gladys Marín — Una vida ligada al liderazgo comunista</h3>
+          <p>
+            Profesora de formación y militante comunista desde muy joven, Gladys Marín fue una de las figuras políticas
+            más emblemáticas de la izquierda chilena. Fue elegida diputada en 1965, reelecta en 1969 y nuevamente en 1973.
+          </p>
+
+          <p>
+            Tras el golpe de Estado, su trayectoria quedó atravesada por la persecución, la clandestinidad y el exilio.
+            En democracia asumió como secretaria general del Partido Comunista y luego como presidenta,
+            cargo que mantuvo hasta su muerte en 2005. En 1999 fue candidata presidencial.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section id="hitos" class="story-section">
-      <div class="section-title">
-        <img src="icono_hitos.png" alt="" class="section-icon">
+    <section class="section" id="congreso">
+      <div class="section-heading">
+        <img class="section-icon" src="assets/img/icono_avance.png" alt="" />
         <div>
-          <p class="eyebrow">Cronología</p>
-          <h2>Del voto a la presidencia</h2>
-          <p class="section-lead">Los hitos que marcaron la participación política femenina.</p>
-        </div>
-      </div>
-
-      <div class="timeline">
-        <article class="timeline-card">
-          <span>1934</span>
-          <h3>Voto municipal femenino</h3>
-          <p>Las mujeres obtienen el derecho a votar en elecciones locales.</p>
-          <img src="1934-voto-municipal.jpg" alt="">
-        </article>
-
-        <article class="timeline-card">
-          <span>1935</span>
-          <h3>Primeras alcaldesas</h3>
-          <p>Algunas mujeres son electas para dirigir municipios, entre ellas Alicia Cañas Zañartu.</p>
-          <img src="1935-alcaldesas.jpg" alt="">
-        </article>
-
-        <article class="timeline-card">
-          <span>1949</span>
-          <h3>Sufragio pleno</h3>
-          <p>Las mujeres pasan a votar en elecciones presidenciales y parlamentarias.</p>
-          <img src="1949-sufragio-pleno.jpg" alt="">
-        </article>
-
-        <article class="timeline-card">
-          <span>1951</span>
-          <h3>Primera diputada electa</h3>
-          <p>Inés Enríquez fue la primera diputada electa en Chile.</p>
-          <img src="1951-ines-enriquez.jpg" alt="">
-        </article>
-
-        <article class="timeline-card">
-          <span>1952</span>
-          <h3>Primera ministra</h3>
-          <p>Adriana Olguín de Baltra fue la primera mujer en asumir un ministerio en Chile y América Latina.</p>
-          <img src="1952-adriana-olguin.jpg" alt="">
-        </article>
-
-        <article class="timeline-card">
-          <span>1953</span>
-          <h3>Primera senadora</h3>
-          <p>María de la Cruz Toledo fue electa como la primera senadora de la historia de Chile.</p>
-          <img src="19533-maria-de-la-cruz.jpg" alt="">
-        </article>
-
-        <article class="timeline-card">
-          <span>1990</span>
-          <h3>Primeras ministras en democracia</h3>
-          <p>El retorno a la democracia abrió el gabinete a mujeres en carteras ministeriales.</p>
-          <img src="1990-soledad-alvear.jpg" alt="">
-        </article>
-
-        <article class="timeline-card">
-          <span>2002</span>
-          <h3>Presidenta de la Cámara</h3>
-          <p>Adriana Muñoz fue la primera mujer en presidir la Cámara Baja.</p>
-          <img src="2002-adriana-muñoz.jpg" alt="">
-        </article>
-
-        <article class="timeline-card">
-          <span>2006</span>
-          <h3>Primera presidenta</h3>
-          <p>Michelle Bachelet se convierte en la primera mujer electa jefa de Estado en Chile.</p>
-          <img src="2006-michelle-bachelet.jpg" alt="">
-        </article>
-
-        <article class="timeline-card">
-          <span>2014</span>
-          <h3>Presidenta del Senado</h3>
-          <p>Isabel Allende asumió la presidencia de la Cámara Alta.</p>
-          <img src="2014-isabel-allende.jpg" alt="">
-        </article>
-      </div>
-
-      <p>La historia que contamos es la de una conquista lenta, desigual y progresiva de los espacios de decisión política en Chile. Las mujeres <strong>pasaron de ser casos excepcionales a ocupar un lugar cada vez más visible</strong> en el Congreso, los gabinetes ministeriales y la conducción de los partidos políticos.</p>
-    </section>
-
-    <section class="story-section">
-      <h2>Isabel Allende y Gladys Marín: abrirse paso en el Congreso</h2>
-
-      <p>Antes de mirar los gráficos del Congreso, hay trayectorias que permiten entender lo que significó entrar, permanecer y liderar dentro del Poder Legislativo. <strong>Isabel Allende y Gladys Marín</strong> representan dos caminos distintos, pero igualmente importantes.</p>
-
-      <article class="profile">
-        <div>
-          <h3>Isabel Allende</h3>
-          <p>Socióloga y militante del Partido Socialista, Isabel Allende ha construido una de las carreras legislativas más extensas de la política chilena reciente. Fue elegida diputada en 1993, 1997, 2001 y 2005, y luego dio el salto al Senado.</p>
-          <p>Además de su presencia legislativa, <strong>presidió la Cámara de Diputadas y Diputados</strong> y se convirtió en la <strong>primera mujer en presidir el Senado</strong>.</p>
-        </div>
-        <img src="isabel-allende.jpg" alt="Isabel Allende">
-      </article>
-
-      <article class="profile reverse">
-        <div>
-          <h3>Gladys Marín</h3>
-          <p>Profesora y militante comunista, Gladys Marín fue una de las figuras más emblemáticas de la izquierda chilena. Fue elegida diputada en 1965, 1969 y 1973.</p>
-          <p>Con el retorno a la democracia, fue elegida secretaria general del Partido Comunista y luego presidenta. Su trayectoria muestra que el liderazgo femenino también se construyó desde <strong>la militancia, la resistencia y la persistencia en contextos adversos</strong>.</p>
-        </div>
-        <img src="gladys-marin.jpg" alt="Gladys Marín">
-      </article>
-    </section>
-
-    <section id="congreso" class="story-section">
-      <div class="section-title">
-        <img src="icono_avance.png" alt="" class="section-icon">
-        <div>
+          <p class="eyebrow">Poder Legislativo</p>
           <h2>Más mujeres en el Congreso</h2>
-          <p class="section-lead">Siete décadas de avance femenino en el Poder Legislativo chileno.</p>
+          <p class="subtitle">Siete décadas de avance femenino en el Poder Legislativo chileno.</p>
         </div>
       </div>
 
-      <h3>Presencia femenina en el Congreso</h3>
-      <div class="chart-card">
+      <article class="chart-block">
+        <h3>Presencia femenina en el Congreso</h3>
         <div class="flourish-embed flourish-chart" data-src="visualisation/29490941"></div>
-      </div>
+        <p>
+          Desde 1950, la presencia de mujeres en el Congreso chileno ha seguido una trayectoria ascendente,
+          aunque marcada por avances lentos, períodos de interrupción y diferencias importantes entre cámaras.
+        </p>
+        <p>
+          El cambio más pronunciado se observa a partir de las elecciones de 2017,
+          las primeras realizadas bajo la ley de cuotas aprobada en 2015.
+          Desde entonces aumentó de manera considerable el número de mujeres electas.
+        </p>
+      </article>
 
-      <p>Desde 1950, la presencia de mujeres en el Congreso chileno ha seguido una trayectoria ascendente, aunque marcada por avances lentos, interrupciones y diferencias entre cámaras. El cambio más pronunciado se observa desde las elecciones de 2017, realizadas bajo la ley de cuotas aprobada en 2015.</p>
-
-      <h3>Mujeres en las mesas directivas del Congreso</h3>
-      <div class="chart-card">
+      <article class="chart-block">
+        <h3>Mujeres en las mesas directivas del Congreso</h3>
         <div class="flourish-embed flourish-chart" data-src="visualisation/29491973"></div>
-      </div>
+        <p>
+          La presencia femenina en el Congreso no se ha limitado al acceso a un escaño.
+          Aunque de manera lenta e irregular, las mujeres también han ido alcanzando espacios de conducción.
+        </p>
+      </article>
 
-      <p>La presencia femenina en el Congreso no se ha limitado al acceso a un escaño. También han alcanzado espacios de conducción, aunque de manera lenta e irregular.</p>
+      <article class="chart-block">
+        <h3>Evolución temporal de la diversidad política</h3>
 
-      <h3>Diversidad política en el Senado</h3>
-      <div class="chart-card">
-        <div class="flourish-embed flourish-chart" data-src="visualisation/29501261"></div>
-      </div>
+        <div class="two-columns">
+          <div>
+            <h4>Senado</h4>
+            <div class="flourish-embed flourish-chart" data-src="visualisation/29501261"></div>
+          </div>
 
-      <h3>Diversidad política en la Cámara de Diputadas y Diputados</h3>
-      <div class="chart-card">
-        <div class="flourish-embed flourish-chart" data-src="visualisation/29500586"></div>
-      </div>
+          <div>
+            <h4>Cámara de Diputadas y Diputados</h4>
+            <div class="flourish-embed flourish-chart" data-src="visualisation/29500586"></div>
+          </div>
+        </div>
 
-      <p>El crecimiento no puede leerse como un avance de un solo sector, sino como una expansión gradual de mujeres hacia todo el espectro político.</p>
+        <p>
+          Si bien en un inicio las mujeres electas pertenecían mayoritariamente al centro,
+          la centroizquierda y la izquierda, desde los años noventa la presencia de mujeres de derecha tomó fuerza en ambas cámaras.
+        </p>
+      </article>
 
-      <h3>Transversalidad política en la Cámara Baja</h3>
-      <button class="glossary-open inline-glossary" type="button">
-        <img src="icono_glosario.png" alt=""> Abrir glosario de partidos
-      </button>
+      <article class="chart-block">
+        <div class="chart-title-row">
+          <h3>Transversalidad política en la Cámara Baja</h3>
+          <button class="glossary-btn" data-open-glossary>
+            <img src="assets/img/icono_glosario.png" alt="" /> Glosario de partidos
+          </button>
+        </div>
 
-      <div class="chart-card">
-        <div class="flourish-embed flourish-chart" data-src="visualisation/29491663"></div>
-      </div>
+        <div class="two-columns">
+          <div class="flourish-embed flourish-chart" data-src="visualisation/29491663"></div>
+          <div class="flourish-embed flourish-chart" data-src="visualisation/29491693"></div>
+        </div>
 
-      <div class="chart-card">
-        <div class="flourish-embed flourish-chart" data-src="visualisation/29491693"></div>
-      </div>
+        <p>
+          Al agrupar las elecciones de diputadas según su signo político o partido político,
+          se observa que la representación femenina ha estado históricamente concentrada en la izquierda,
+          la centroizquierda y el centro, aunque la derecha ha adquirido un peso creciente.
+        </p>
+      </article>
 
-      <h3>Transversalidad política en la Cámara Alta</h3>
-      <button class="glossary-open inline-glossary" type="button">
-        <img src="icono_glosario.png" alt=""> Abrir glosario de partidos
-      </button>
+      <article class="chart-block">
+        <div class="chart-title-row">
+          <h3>Transversalidad política en la Cámara Alta</h3>
+          <button class="glossary-btn" data-open-glossary>
+            <img src="assets/img/icono_glosario.png" alt="" /> Glosario de partidos
+          </button>
+        </div>
 
-      <div class="chart-card">
-        <div class="flourish-embed flourish-chart" data-src="visualisation/29491523"></div>
-      </div>
+        <div class="two-columns">
+          <div class="flourish-embed flourish-chart" data-src="visualisation/29491523"></div>
+          <div class="flourish-embed flourish-chart" data-src="visualisation/29491800"></div>
+        </div>
 
-      <div class="chart-card">
-        <div class="flourish-embed flourish-chart" data-src="visualisation/29491800"></div>
-      </div>
+        <p>
+          La incorporación de mujeres al Senado fue más tardía y reducida que en la Cámara de Diputadas y Diputados.
+          En los períodos recientes, la presencia femenina se distribuye entre una mayor variedad de partidos y bloques.
+        </p>
+      </article>
 
-      <h3>Principales carreras del Congreso</h3>
-      <div class="chart-card">
+      <article class="chart-block">
+        <h3>Principales carreras del Congreso</h3>
         <div class="flourish-embed flourish-chart" data-src="visualisation/29501396"></div>
+        <p>
+          El perfil profesional de las mujeres electas al Congreso muestra una fuerte concentración en áreas tradicionalmente vinculadas
+          al ejercicio público. Derecho encabeza el ranking, seguido por trayectorias políticas o sociales, educación, comunicación,
+          ingeniería, medicina y sociología.
+        </p>
+      </article>
+    </section>
+
+    <section class="section profile-section">
+      <div class="profile-card">
+        <img src="assets/img/michelle-bachelet.jpg" alt="Michelle Bachelet" />
+        <div>
+          <p class="eyebrow">Perfil</p>
+          <h2>Michelle Bachelet: del gabinete a La Moneda y al mundo</h2>
+
+          <p>
+            Antes de convertirse en la primera y, hasta ahora, única mujer en asumir la Presidencia de Chile,
+            Bachelet construyó una trayectoria política marcada por el servicio público,
+            la experiencia ministerial y la apertura de espacios históricamente ocupados por hombres.
+          </p>
+
+          <p>
+            Médica cirujana, con especialización en pediatría y salud pública, fue ministra de Salud y luego ministra de Defensa.
+            Después de ejercer la Presidencia, fue la primera directora ejecutiva de ONU Mujeres y Alta Comisionada de las Naciones Unidas
+            para los Derechos Humanos entre 2018 y 2022.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="story-section">
-      <h2>Michelle Bachelet: del gabinete a La Moneda y al mundo</h2>
+    <section class="section" id="gabinetes">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Poder Ejecutivo</p>
+          <h2>Más mujeres en los gabinetes</h2>
+          <p class="subtitle">Del nombramiento excepcional a la presencia sostenida en el Poder Ejecutivo.</p>
+        </div>
+      </div>
 
-      <p>La historia de Michelle Bachelet permite conectar el aumento de mujeres en los gabinetes con la posibilidad de acceder a cargos de poder aún mayores. Antes de convertirse en la primera y, hasta ahora, única mujer en asumir la Presidencia de Chile, Bachelet construyó una trayectoria marcada por <strong>el servicio público, la experiencia ministerial y la apertura de espacios históricamente ocupados por hombres</strong>.</p>
-
-      <p>Médica cirujana de profesión, con especialización en pediatría y salud pública, pasó por el Ministerio de Salud y luego por el Ministerio de Defensa. Su trayectoria llegó a La Moneda y después se proyectó internacionalmente como directora ejecutiva de ONU Mujeres y Alta Comisionada de Naciones Unidas para los Derechos Humanos.</p>
-
-      <img class="full-img" src="michelle-bachelet.jpg" alt="Michelle Bachelet">
-    </section>
-
-    <section id="gabinetes" class="story-section">
-      <h2>Más mujeres en los gabinetes</h2>
-      <p class="section-lead">Del nombramiento excepcional a la presencia sostenida en el Poder Ejecutivo.</p>
-
-      <h3>Presencia femenina en gabinetes</h3>
-      <div class="chart-card">
+      <article class="chart-block">
+        <h3>Presencia femenina en gabinetes</h3>
         <div class="flourish-embed flourish-chart" data-src="visualisation/29503540"></div>
-      </div>
+        <p>
+          La evolución de las designaciones de ministras muestra un cambio significativo.
+          Tras el nombramiento de la primera ministra en 1952, las designaciones femeninas fueron escasas
+          durante gran parte del siglo XX.
+        </p>
+        <p>
+          Desde 2006, con el primer gobierno de Michelle Bachelet, la incorporación de mujeres a los gabinetes
+          dejó de ser una excepción para convertirse en una política sostenida.
+        </p>
+      </article>
 
-      <p>La evolución de las designaciones de ministras muestra un cambio significativo. Desde 1952, las designaciones femeninas fueron escasas y esporádicas. Recién desde la década de 1990 comenzó un incremento gradual, que se aceleró desde 2006 con el primer gobierno de Michelle Bachelet.</p>
-
-      <h3>Presencia femenina en ministerios</h3>
-      <div class="chart-card">
-        <div class="flourish-embed flourish-chart" data-src="visualisation/29504912"></div>
-      </div>
-
-      <p>El ranking de ministerios muestra que la presencia de ministras no se distribuye de manera uniforme. Su incorporación histórica ha estado más asociada a carteras sociales o de cuidado público, mientras que ministerios estratégicos aparecen con menor frecuencia.</p>
-
-      <h3>Diversidad política en gabinetes ministeriales</h3>
-      <div class="chart-card">
-        <div class="flourish-embed flourish-chart" data-src="visualisation/29503597"></div>
-      </div>
-
-      <p>La presencia de ministras dejó de ser un fenómeno asociado a un único sector ideológico y pasó a consolidarse como una característica transversal de los gobiernos chilenos.</p>
-
-      <h3>Transversalidad política en gabinetes ministeriales</h3>
-      <button class="glossary-open inline-glossary" type="button">
-        <img src="icono_glosario.png" alt=""> Abrir glosario de partidos
-      </button>
-
-      <div class="chart-card">
-        <div class="flourish-embed flourish-chart" data-src="visualisation/29503887"></div>
-      </div>
-
-      <h3>Principales carreras en gabinetes</h3>
-      <div class="chart-card">
+      <article class="chart-block">
+        <h3>Presencia femenina en ministerios</h3>
         <div class="flourish-embed flourish-chart" data-src="visualisation/29504503"></div>
+        <p>
+          El ranking de ministerios muestra que la presencia de ministras no se distribuye de manera uniforme.
+          Se concentra en espacios vinculados a políticas sociales, bienestar, derechos, educación, salud y desarrollo social.
+        </p>
+        <p>
+          Ministerios considerados estratégicos o de mayor peso político-institucional,
+          como Interior, Hacienda, Defensa o Relaciones Exteriores, aparecen con menor frecuencia.
+        </p>
+      </article>
+
+      <article class="chart-block">
+        <h3>Evolución temporal de la diversidad política en gabinetes</h3>
+        <div class="flourish-embed flourish-chart" data-src="visualisation/29503597"></div>
+        <p>
+          Durante gran parte del siglo XX, las designaciones de ministras fueron aisladas.
+          A partir de la década del 2000, la incorporación de mujeres a los gabinetes comienza a acelerarse
+          y a ampliarse hacia otros sectores del espectro político.
+        </p>
+      </article>
+
+      <article class="chart-block">
+        <div class="chart-title-row">
+          <h3>Transversalidad política en gabinetes ministeriales</h3>
+          <button class="glossary-btn" data-open-glossary>
+            <img src="assets/img/icono_glosario.png" alt="" /> Glosario de partidos
+          </button>
+        </div>
+
+        <div class="flourish-embed flourish-chart" data-src="visualisation/29503887"></div>
+
+        <p>
+          La distribución de las designaciones de ministras por partido político evidencia que la incorporación de mujeres
+          a los gabinetes ha sido impulsada por una amplia diversidad de colectividades.
+        </p>
+      </article>
+
+      <article class="chart-block">
+        <h3>Principales carreras en gabinetes</h3>
+        <div class="flourish-embed flourish-chart" data-src="visualisation/29504503"></div>
+        <p>
+          El perfil profesional de las ministras chilenas evidencia un claro predominio de las carreras vinculadas al Derecho.
+          En un segundo nivel aparecen médicas, periodistas, economistas, trabajadoras sociales,
+          ingenieras comerciales y sociólogas.
+        </p>
+      </article>
+    </section>
+
+    <section class="section profile-section">
+      <div class="profile-card reverse">
+        <img src="assets/img/gladys-marin.jpg" alt="Gladys Marín" />
+        <div>
+          <p class="eyebrow">Perfil</p>
+          <h2>Gladys Marín y el poder de los partidos</h2>
+          <p>
+            La trayectoria de Gladys Marín no solo permite hablar del Congreso.
+            También abre la puerta a una dimensión clave del poder político:
+            <strong>la conducción de los partidos</strong>. Desde su rol como secretaria general y luego presidenta del Partido Comunista,
+            Marín encarnó una forma de liderazgo construida desde la militancia, la organización interna y la persistencia.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section id="partidos" class="story-section">
-      <h2>Gladys Marín y el poder de los partidos</h2>
-
-      <p>La trayectoria de Gladys Marín no solo permite hablar del Congreso. También abre la puerta a una dimensión clave del poder político: <strong>la conducción de los partidos</strong>.</p>
-
-      <h2>Presidentas de partidos políticos</h2>
-      <p class="section-lead">Del liderazgo excepcional a una tendencia cada vez más transversal.</p>
-
-      <h3>Presencia femenina en presidencias de partidos políticos</h3>
-      <div class="chart-card">
-        <div id="presidentas-rate-chart"></div>
+    <section class="section" id="partidos">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Partidos políticos</p>
+          <h2>Presidentas de partidos políticos</h2>
+          <p class="subtitle">Del liderazgo excepcional a una tendencia cada vez más transversal.</p>
+        </div>
       </div>
 
-      <p>Se ha tratado de un <strong>aumento acelerado en la presidencia de mujeres en partidos políticos</strong>. Entre 1989 y 2009 solo cuatro mujeres más fueron electas. Entre 2010 y 2019 fueron ocho, y en los últimos seis años, once.</p>
+      <article class="chart-block">
+        <h3>Presencia femenina en presidencias de partidos políticos</h3>
+        <div id="visPresidentas" class="vega-chart"></div>
+        <p>
+          Se ha tratado de un aumento acelerado en la presidencia de mujeres en partidos políticos en nuestro país.
+          Entre 1989 y 2009 solo cuatro mujeres más fueron electas; de 2010 a 2019 fueron ocho;
+          y en los últimos seis años, once mujeres han sido electas.
+        </p>
+      </article>
 
-      <h3>Período 1989–2009</h3>
-      <div class="chart-card">
-        <div class="flourish-embed flourish-chart" data-src="visualisation/29505011"></div>
-      </div>
+      <article class="chart-block">
+        <h3>Evolución temporal de presidencia femenina de partidos políticos según signo ideológico</h3>
+        <p>
+          Desde 1989, más de 20 mujeres han asumido la presidencia de partidos políticos en Chile;
+          partidos que van desde la izquierda a la ultraderecha.
+          Más de la mitad de ellas han sido electas durante los últimos seis años.
+        </p>
 
-      <h3>Período 2010–2019</h3>
-      <div class="chart-card">
-        <div class="flourish-embed flourish-chart" data-src="visualisation/29505099"></div>
-      </div>
+        <div class="period-grid">
+          <div class="period-card">
+            <h4>Período 1989–2009</h4>
+            <div class="flourish-embed flourish-chart" data-src="visualisation/29505011"></div>
+            <p>
+              La elección de mujeres para presidir partidos fue un fenómeno limitado y concentrado principalmente en la izquierda.
+            </p>
+          </div>
 
-      <h3>Período 2020–2026</h3>
-      <div class="chart-card">
-        <div class="flourish-embed flourish-chart" data-src="visualisation/29505116"></div>
-      </div>
+          <div class="period-card">
+            <h4>Período 2010–2019</h4>
+            <div class="flourish-embed flourish-chart" data-src="visualisation/29505099"></div>
+            <p>
+              El liderazgo femenino comenzó a expandirse hacia otros sectores políticos.
+              Aparecieron mujeres al frente de partidos de centroderecha y derecha.
+            </p>
+          </div>
 
-      <p>Entre 2020 y 2026 se observa el escenario de mayor diversidad política. La izquierda continúa liderando en cantidad, pero la centroizquierda y la centroderecha incrementan su representación y también aparece una presidenta en la ultraderecha.</p>
+          <div class="period-card">
+            <h4>Período 2020–2026</h4>
+            <div class="flourish-embed flourish-chart" data-src="visualisation/29505116"></div>
+            <p>
+              Se observa el escenario de mayor diversidad política, incluyendo una presidenta en la ultraderecha.
+            </p>
+          </div>
+        </div>
+      </article>
 
-      <h3>Principales carreras en presidencias de partidos</h3>
-      <div class="chart-card">
+      <article class="chart-block">
+        <h3>Signos ideológicos y presidencia femenina de partidos políticos</h3>
+        <p>
+          En un principio era más evidente la relación entre inclinación ideológica y presidencia femenina,
+          como una situación casi exclusivamente de partidos de izquierda o centroizquierda.
+          Sin embargo, la participación femenina se expandió hacia otros sectores con el tiempo.
+        </p>
+      </article>
+
+      <article class="chart-block">
+        <h3>Principales carreras en presidencias de partidos</h3>
         <div class="flourish-embed flourish-chart" data-src="visualisation/29504515"></div>
+        <p>
+          Tal como en el Congreso y los gabinetes ministeriales,
+          Derecho es la carrera más común entre las mujeres que han sido electas presidentas de partidos,
+          seguida por Pedagogía, Ciencias Políticas y Sociología.
+        </p>
+      </article>
+    </section>
+
+    <section class="section profile-section">
+      <div class="profile-card">
+        <img src="assets/img/evelyn-matthei.jpg" alt="Evelyn Matthei" />
+        <div>
+          <p class="eyebrow">Perfil</p>
+          <h2>Evelyn Matthei y el poder femenino más allá de la izquierda</h2>
+          <p>
+            Economista y representante de la derecha chilena,
+            Evelyn Matthei ha construido una de las trayectorias políticas más reconocibles y persistentes desde ese sector.
+            Fue diputada, senadora, ministra del Trabajo, alcaldesa de Providencia y candidata presidencial.
+          </p>
+          <p>
+            Su carrera permite observar cómo algunas mujeres lograron consolidarse en la política institucional
+            incluso en décadas donde la representación femenina era limitada.
+            Su trayectoria evidencia que la disputa por los espacios de poder también se construyó desde recorridos largos,
+            competitivos y sostenidos en el tiempo.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="story-section">
-      <h2>Evelyn Matthei y el poder femenino más allá de la izquierda</h2>
+    <section class="section" id="cierre">
+      <article class="closing-block">
+        <p class="eyebrow">Conclusión</p>
+        <h2>Un poder cada vez más transversal</h2>
+        <p>
+          La principal revelación de la investigación es que el poder político femenino en Chile dejó de ser un fenómeno
+          asociado exclusivamente a sectores progresistas.
+          Aunque la izquierda y la centroizquierda tuvieron un papel relevante en las primeras etapas,
+          los datos muestran que el liderazgo femenino se ha expandido hacia el centro, la derecha y la extrema derecha.
+        </p>
+      </article>
 
-      <p>Economista y representante de la derecha chilena, Evelyn Matthei ha construido una de las trayectorias políticas más reconocibles y persistentes desde ese sector. Su carrera permite observar el <strong>avance progresivo de liderazgos femeninos de derecha</strong>.</p>
+      <article class="closing-block">
+        <h2>Los caminos hacia el poder</h2>
+        <p>
+          Los datos muestran que no existe una sola ruta para llegar al poder.
+          Algunas mujeres construyeron sus trayectorias desde el Derecho,
+          otras desde la educación, la medicina, la sociología, el periodismo,
+          la militancia partidaria, la administración pública o la experiencia territorial.
+        </p>
 
-      <p>Fue diputada, senadora, ministra del Trabajo, alcaldesa de Providencia y candidata presidencial. Su historia muestra que la disputa por los espacios de poder también se construyó desde recorridos largos, competitivos y sostenidos en el tiempo.</p>
-
-      <img class="full-img" src="evelyn-matthei.jpg" alt="Evelyn Matthei">
-    </section>
-
-    <section class="story-section">
-      <h2>Un poder cada vez más transversal</h2>
-
-      <p>La principal revelación de la investigación es que el <strong>poder político femenino en Chile dejó de ser un fenómeno asociado exclusivamente a sectores progresistas</strong>. Aunque la izquierda y la centroizquierda tuvieron un papel relevante en las primeras etapas, los datos muestran que el liderazgo femenino se ha expandido hacia el centro, la derecha y la extrema derecha.</p>
-    </section>
-
-    <section id="carreras" class="story-section">
-      <h2>Los caminos hacia el poder</h2>
-      <p class="section-lead">Diversas profesiones y carreras detrás del avance femenino en la política.</p>
-
-      <p>Los datos muestran que no existe una sola ruta para llegar al poder. Algunas mujeres construyeron sus trayectorias desde el Derecho, otras desde la educación, la medicina, la sociología, el periodismo, la militancia partidaria, la administración pública o la experiencia territorial.</p>
-
-      <div class="chart-card">
         <div class="flourish-embed flourish-hierarchy" data-src="visualisation/29578043"></div>
-      </div>
-    </section>
 
-    <section class="story-section final-section">
-      <h2>Más mujeres al mando</h2>
+        <p>
+          Derecho aparece como una carrera dominante en varias áreas,
+          pero también emergen otros campos que amplían el perfil de las mujeres que han ocupado cargos de representación,
+          conducción y gobierno.
+        </p>
+      </article>
 
-      <p>En conjunto, los datos muestran que esta historia va mucho más allá de sumar mujeres a la política. Lo que ha cambiado es la forma en que se distribuye y se ejerce el poder: en el Congreso, en los gabinetes y en la conducción de los partidos.</p>
+      <article class="final-card">
+        <h2>Más mujeres al mando</h2>
+        <p>
+          En conjunto, los datos muestran que esta historia va mucho más allá de sumar mujeres a la política.
+          Lo que ha cambiado es la forma en que se distribuye y se ejerce el poder:
+          en el Congreso, en los gabinetes y en la conducción de los partidos.
+        </p>
 
-      <p>El avance ha sido lento y todavía incompleto, pero ya transformó para siempre el rostro de la política chilena. Las mujeres no solo llegaron a los espacios de decisión: también los están redefiniendo.</p>
+        <p>
+          El avance ha sido lento y todavía incompleto, pero ya transformó para siempre el rostro de la política chilena.
+          Las mujeres no solo llegaron a los espacios de decisión: también los están redefiniendo.
+        </p>
+      </article>
     </section>
   </main>
 
-  <div class="modal" id="glossary-modal" hidden>
-    <div class="modal-backdrop" data-close-glossary></div>
+  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">↑</button>
 
-    <div class="modal-card">
-      <button class="modal-close" data-close-glossary>&times;</button>
-
-      <div class="modal-header">
-        <img src="icono_glosario.png" alt="">
-        <div>
-          <p class="eyebrow">Glosario</p>
-          <h2>Siglas de partidos políticos</h2>
-        </div>
-      </div>
-
-      <label class="glossary-search">
-        <span>Buscar partido o sigla</span>
-        <input type="search" id="glossary-search" placeholder="Ej: PS, UDI, Frente Amplio...">
-      </label>
-
-      <ul id="glossary-list" class="glossary-list">
-        <li><span>AH</span><p>Acción Humanista</p></li>
-        <li><span>API</span><p>Acción Popular Independiente</p></li>
-        <li><span>COM / Comunes</span><p>Comunes</p></li>
-        <li><span>CS</span><p>Convergencia Social</p></li>
-        <li><span>DEM / Demócratas</span><p>Demócratas</p></li>
-        <li><span>Evópoli</span><p>Evolución Política</p></li>
-        <li><span>FA</span><p>Frente Amplio</p></li>
-        <li><span>Ind - UDI</span><p>Independiente asociada o electa en pacto/lista de la Unión Demócrata Independiente</p></li>
-        <li><span>Ind RD</span><p>Independiente asociada o electa en pacto/lista de Revolución Democrática</p></li>
-        <li><span>MAPU</span><p>Movimiento de Acción Popular Unitario</p></li>
-        <li><span>Mujeres de Chile</span><p>Mujeres de Chile</p></li>
-        <li><span>PAR</span><p>Partido Regionalista de los Independientes / Partido de Acción Regionalista</p></li>
-        <li><span>PCCH / PCCh</span><p>Partido Comunista de Chile</p></li>
-        <li><span>PDC / DC</span><p>Partido Demócrata Cristiano</p></li>
-        <li><span>PDG</span><p>Partido de la Gente</p></li>
-        <li><span>PDI</span><p>Partido Democrático de Izquierda</p></li>
-        <li><span>PEVC</span><p>Partido Ecologista Verde de Chile</p></li>
-        <li><span>PH</span><p>Partido Humanista</p></li>
-        <li><span>PL</span><p>Partido Liberal</p></li>
-        <li><span>PN</span><p>Partido Nacional</p></li>
-        <li><span>PNL</span><p>Partido Nacional Libertario</p></li>
-        <li><span>PPD</span><p>Partido por la Democracia</p></li>
-        <li><span>PPF</span><p>Partido Progresista Femenino</p></li>
-        <li><span>PR</span><p>Partido Radical de Chile</p></li>
-        <li><span>PRCH / PRch</span><p>Partido Republicano de Chile</p></li>
-        <li><span>PSC</span><p>Partido Social Cristiano</p></li>
-        <li><span>PS</span><p>Partido Socialista de Chile</p></li>
-        <li><span>RD</span><p>Revolución Democrática</p></li>
-        <li><span>RN</span><p>Renovación Nacional</p></li>
-        <li><span>UCCP</span><p>Unión de Centro Centro Progresista</p></li>
-        <li><span>UDI</span><p>Unión Demócrata Independiente</p></li>
-      </ul>
+  <dialog class="glossary-modal" id="glossaryModal">
+    <div class="modal-header">
+      <h2>Glosario de siglas de partidos políticos</h2>
+      <button class="close-modal" id="closeGlossary" aria-label="Cerrar glosario">×</button>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <div class="glossary-search">
+      <label for="glossarySearch">Buscar sigla o partido</label>
+      <input id="glossarySearch" type="search" placeholder="Ej: PS, UDI, Frente Amplio..." />
+    </div>
+
+    <div class="glossary-list" id="glossaryList">
+      <p><strong>AH:</strong> Acción Humanista</p>
+      <p><strong>API:</strong> Acción Popular Independiente</p>
+      <p><strong>COM / Comunes:</strong> Comunes</p>
+      <p><strong>CS:</strong> Convergencia Social</p>
+      <p><strong>DEM / Demócratas:</strong> Demócratas</p>
+      <p><strong>Evópoli:</strong> Evolución Política</p>
+      <p><strong>FA:</strong> Frente Amplio</p>
+      <p><strong>Ind - UDI:</strong> Independiente asociada o electa en pacto/lista de la Unión Demócrata Independiente</p>
+      <p><strong>Ind RD:</strong> Independiente asociada o electa en pacto/lista de Revolución Democrática</p>
+      <p><strong>MAPU:</strong> Movimiento de Acción Popular Unitario</p>
+      <p><strong>Mujeres de Chile:</strong> Mujeres de Chile</p>
+      <p><strong>PAR:</strong> Partido Regionalista de los Independientes / Partido de Acción Regionalista, según el año de la base</p>
+      <p><strong>PCCH / PCCh:</strong> Partido Comunista de Chile</p>
+      <p><strong>PDC / DC:</strong> Partido Demócrata Cristiano</p>
+      <p><strong>PDG:</strong> Partido de la Gente</p>
+      <p><strong>PDI:</strong> Partido Democrático de Izquierda</p>
+      <p><strong>PEVC:</strong> Partido Ecologista Verde de Chile</p>
+      <p><strong>PH:</strong> Partido Humanista</p>
+      <p><strong>PL:</strong> Partido Liberal</p>
+      <p><strong>PN:</strong> Partido Nacional</p>
+      <p><strong>PNL:</strong> Partido Nacional Libertario</p>
+      <p><strong>PPD:</strong> Partido por la Democracia</p>
+      <p><strong>PPF:</strong> Partido Progresista Femenino</p>
+      <p><strong>PR:</strong> Partido Radical de Chile</p>
+      <p><strong>PRCH / PRch:</strong> Partido Republicano de Chile</p>
+      <p><strong>PSC:</strong> Partido Social Cristiano</p>
+      <p><strong>PS:</strong> Partido Socialista de Chile</p>
+      <p><strong>RD:</strong> Revolución Democrática</p>
+      <p><strong>RN:</strong> Renovación Nacional</p>
+      <p><strong>UCCP:</strong> Unión de Centro Centro Progresista</p>
+      <p><strong>UDI:</strong> Unión Demócrata Independiente</p>
+    </div>
+  </dialog>
+
+  <footer class="footer">
+    <p>Mujeres al Mando · Webstory programada en HTML, CSS y JavaScript</p>
+  </footer>
 </body>
 </html>
